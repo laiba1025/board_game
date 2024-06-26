@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Exploration</title>
+    <link rel="icon" href="img/desert.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="home-screen">
+        <h2>Welcome to the Desert</h2>
+        <input type="text" id="player-name" placeholder="Name of player"><br>
+        <input type="number" id="game-duration" placeholder="Game duration (minutes)">
+        <button onclick="startExploring()">Start The Game</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <div class="struct" id="struct"></div>
+
+        <div id="game-info">
+            <div id="data">
+                <h3 class="box">Player Data</h3>
+                <p id="player_name"></p>
+                <p>Water Supply: <span id="water-supply-display"></span></p>
+            </div>
+            <div>
+                <div id="actions">
+                    <h3 class="box">Actions to Win</h3>
+                    <p>Actions Remaining: <span id="next_remain_action"></span></p>
+                    <div class="move-controls">
+                        <button id="move-left" onclick="movePlayer(horizontal_mov, vertical_mov - 1)">Move-L</button>
+                        <button id="move-right" onclick="movePlayer(horizontal_mov, vertical_mov + 1)">Move-R</button>
+                    </div>
+                    <div class="move-controls">
+                        <button id="move-up" onclick="movePlayer(horizontal_mov - 1, vertical_mov)">Move-U</button>
+                        <button id="move-down" onclick="movePlayer(horizontal_mov + 1, vertical_mov)">Move-D</button>
+                    </div>
+                    <button onclick="takeAction('Dig')">Dig</button>
+                    <button onclick="restartGame()">Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="countdown-timer" class="time-block"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
